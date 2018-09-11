@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Page</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <h2>Survey Questions</h2>
+  <hr>
+  <form>
+    <div class="form-group">
+      <h3>About You</h3>
+      <label for="name">Name (Required)</label>
+      <input type="text" class="form-control" id="name">
+      <label for="photoLink">Link to Photo Image (Required)</label>
+      <input type="text" class="form-control" id="photoLink">
+    </div>
+    <div class="form-group">
+      <h3>Question 1</h3>
+      <label for="ques1">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques1">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 2</h3>
+      <label for="ques2">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques2">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 3</h3>
+      <label for="ques3">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques3">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 4</h3>
+      <label for="ques4">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques4">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 5</h3>
+      <label for="ques5">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques5">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 6</h3>
+      <label for="ques6">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques6">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 7</h3>
+      <label for="ques7">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques7">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 8</h3>
+      <label for="ques8">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques8">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 9</h3>
+      <label for="ques9">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques9">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+      <h3>Question 10</h3>
+      <label for="ques10">Your mind is always buzzing with unexplored ideas</label>
+      <select class="form-control" id="ques10">
+        <option>1 (strongly disagree)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5 (strongly agree)</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary submit">Submit</button>
+  </form>
+
+  </div>
+
+</body>
+
+<footer class="footer">
+  <div class="container">
+    <p>
+      <a href="/api/friends">API Friends</a>
+  </div>
+</footer>
+
+</html>
+
+<div id="bestFriendModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">New Friend!</h5>
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="matchPhoto"></div>
+        <p id="matchName"></p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+
+  $(".submit").on("click", function (event) {
+    event.preventDefault();
+
+    var newFriend = {
+      friendName: $("#name").val().trim(),
+      friendPhoto: $("#photoLink").val().trim(),
+      scores: [
+        $("#ques1").val().trim(),
+        $("#ques2").val().trim(),
+        $("#ques3").val().trim(),
+        $("#ques4").val().trim(),
+        $("#ques5").val().trim(),
+        $("#ques6").val().trim(),
+        $("#ques7").val().trim(),
+        $("#ques8").val().trim(),
+        $("#ques9").val().trim(),
+        $("#ques10").val().trim()
+      ]
+
+    };
+
+   
+
+    $.post("/api/friends", newFriend,
+      function (data) {
+        $("#matchName").text(data.friendName);
+        $("#matchPhoto").html("<img src='" + data.friendPhoto +"' width = '100%'>")
+      });
+
+    $("#bestFriendModal").modal('show');
+
+    $.get("/api/friends", function (data) {
+      // $("#bestFriendModal").modal('show');
+      // $("#matchName").text(data);
+      console.log("All friends: " + data);
+    });
+
+    
+
+
+    $("#name").val("");
+    $("#photoLink").val("");
+    $("#ques1").val("");
+    $("#ques2").val("");
+    $("#ques3").val("");
+    $("#ques4").val("");
+    $("#ques5").val("");
+    $("#ques6").val("");
+    $("#ques7").val("");
+    $("#ques8").val("");
+    $("#ques9").val("");
+    $("#ques10").val("");
+
+  });
+
+</script>
